@@ -13,7 +13,7 @@ class Configuration extends TaintTracking::Configuration {
   override predicate isSource(DataFlow::Node source) {
       // Fill me in from Step 9
       exists(DataFlow::FunctionNode plugin |
-        plugin = jquery().getAPropertyRead("fn") and
+        plugin = jquery().getAPropertyRead("fn").getAPropertySource() and
         source = plugin.getLastParameter()
       )
   }
